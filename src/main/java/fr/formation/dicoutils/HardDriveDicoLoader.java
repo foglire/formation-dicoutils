@@ -1,8 +1,10 @@
 package fr.formation.dicoutils;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -15,11 +17,11 @@ public class HardDriveDicoLoader implements DicoLoader {
 	 * {@inheritDoc} Chargement du fichier avec chemin absolu sur le disque dur.
 	 */
 	@Override
-	public String[] loadFile(String path) {
+	public String[] loadFile(InputStream inputStream) {
 		Collection<String> lines = new ArrayList<>();
 		BufferedReader buffer;
 		try {
-			FileReader reader = new FileReader(path);
+			Reader reader = new InputStreamReader(inputStream);
 			buffer = new BufferedReader(reader);
 			// Lecture de la première ligne.
 			String line = buffer.readLine();

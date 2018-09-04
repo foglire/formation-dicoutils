@@ -62,7 +62,7 @@ public class DicoUtils implements Runnable {
 	}
 
 	private String[] readDico() {
-		return this.loader.loadFile("./dictionnaire.txt");
+		return this.loader.loadFile(this.getClass().getResourceAsStream("./dictionnaire.txt"));
 	}
 
 	/**

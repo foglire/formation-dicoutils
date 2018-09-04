@@ -15,9 +15,7 @@ public class ClasspathDicoLoader implements DicoLoader {
 	 * {@inheritDoc} Lecture d'un fichier par son chemin dans le classpath.
 	 */
 	@Override
-	public String[] loadFile(String path) {
-		InputStream inputStream = this.getClass().getClassLoader()
-				.getResourceAsStream(path);
+	public String[] loadFile(InputStream inputStream) {
 		Reader reader = new InputStreamReader(inputStream);
 		BufferedReader buffer = new BufferedReader(reader);
 		return (String[]) buffer.lines().collect(Collectors.toList())
